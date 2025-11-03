@@ -7,7 +7,6 @@ import gspread
 import threading
 import time
 import datetime
-from streamlit_autorefresh import st_autorefresh
 import json
 from google.oauth2.service_account import Credentials
 import base64
