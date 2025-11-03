@@ -105,7 +105,7 @@ def add_bg_from_local(image_file):
     )
 
 # 🖼️ Call it
-add_bg_from_local("img.jpg")
+add_bg_from_local("IMG.jpg")
 
 # ------------------------------
 # Settings - same sheet id as you provided
