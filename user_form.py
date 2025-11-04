@@ -378,7 +378,7 @@ if remaining.total_seconds() > 0:
                 st.warning("You have already submitted this session. Refresh the page to submit again.")
             else:
                 # basic validation
-                if not (name and email and why_join and motivation):
+                if not (name and email):
                     st.error("Please fill required fields: Name, Email, Why join, Motivation.")
                 else:
                     # prevent duplicate by email (check sheet)
