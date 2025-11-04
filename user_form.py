@@ -114,7 +114,7 @@ SHEET_ID = "1wpyHQf51TxG7mUM6MikyGBsz9maN471y1sO03BPOEUo"
 
 CANONICAL_HEADERS = [
     # --- Basic Info ---
-    "Name", "Email", "Phone","Student_ID", "Department", "Academic_Year",
+    "Name", "Email", "Phone", "Student_ID", "Department", "Academic_Year",
     "FB_Link", "Discord_ID", "Date_Birth",
 
     # --- Domain Preferences ---
@@ -154,21 +154,20 @@ CANONICAL_HEADERS = [
 
     # --- Motivation & Availability ---
     "Why_Join",
-    "Motivation",
-    "Teamwork",
-    "Future_Goal",
-    "Free_Time",
-    "Active_Events",
-    "How_Know_Us",
+    "What_Learn",
     "Other_Club",
-    "Role",
-    "Team_Leader",
-    "Extra",
+    "Leadership",
+    "Challenge",
+    "Manage_Time",
+    "Communication_Skills",
+    "Public_Speaking",
+    "Anything_To_Add",
 
     # --- Final Scoring & Meta ---
     "Total_Score",
     "Submission_Date"
 ]
+
 
 
 
@@ -283,16 +282,20 @@ if remaining.total_seconds() > 0:
         with st.form("application_form", clear_on_submit=False):
             col1, col2 = st.columns(2)
             with col1:
-                name = st.text_input("👤 Full Name *")
-                email = st.text_input("📧 Email Address *")
-                Phone = st.text_input("📞 Phone Number")
-                department = st.text_input("🏫 Department")
-                academic_year = st.selectbox("🎓 Academic Year", ["L1/ING1","L2/ING2","L3/ING3","M1/ING4","M2/ING5"])
+                name = st.text_input("👤 Full Name *", placeholder="Enter your full name")
+                email = st.text_input("📧 Email Address *", placeholder="Enter your email")
+                phone = st.text_input("📞 Phone Number", placeholder="0X XX XX XX XX")
+                department = st.text_input("🏫 Department", placeholder="Eg: MI, ST, SM ...")
+                academic_year = st.selectbox(
+                    "🎓 Academic Year", 
+                    ["L1/ING1","L2/ING2","L3/ING3","M1/ING4","M2/ING5"]
+                )
+
             with col2:
-                Student_id = st.text_input("🆔 Student ID")
-                fb_link = st.text_input("🔗 Facebook Link")
-                discord_id = st.text_input("💬 Discord ID")
-                Date_Birth = st.text_input("📅 Date of Birth (DD/MM/YYYY)")
+                student_id = st.text_input("🆔 Student ID", placeholder="Matricule")
+                fb_link = st.text_input("🔗 Facebook Link", placeholder="Facebook profile link")
+                discord_id = st.text_input("💬 Discord ID", placeholder="Discord ID")
+                date_birth = st.text_input("📅 Date of Birth (DD/MM/YYYY)", placeholder="DD/MM/YYYY")
                 st.caption("Fields marked * are required")
             
             st.markdown("---")
@@ -325,7 +328,22 @@ if remaining.total_seconds() > 0:
             media_editing_tools = st.multiselect("Which tools do you use for editing?", ["Adobe Premiere Pro","CapCut","DaVinci Resolve","Adobe Audition","Audacity","None"]) # 2 pts per selected (max 6)
             media_deep_tools = st.multiselect("Have you ever explored or owned any of these tools/resources?", ["Camera","Smartphone with good camera","Microphone","Lighting Setup","Tripod / Stabilizer","SD cards / External storage","None"]) # 2 pt per selected (max 6)
             media_portfolio = st.selectbox("🌐 Do you have a portfolio ?", ["yes","no"],key=1)# 0
-            media_project_desc = st.multiselect("🧠 Describe a media-related project or experience",["Participated in a design competition = 1pt", "Created a complete project (poster, logo, UI/UX, 3D model, etc.) = 2pt", "Designed for real events, clients, or organizations = 2pt", "Tried taking professional photos=1pt", "Created a short film or video project = 2pt", "Managed media coverage or promotional content = 1pt", "Made a marketing strategy / understand social media algorithms = 2pt", "Tried or currently doing content creation=1pt", "Good at voice acting or acting = 2pt"])
+            media_project_desc = st.multiselect(
+                "🧠 Describe a media-related project or experience",
+                [
+                    # -1 items
+                    "Participated in a design competition -1",
+                    "Tried taking professional photos -1",
+                    "Managed media coverage or promotional content -1",
+                    "Tried or currently doing content creation -1",
+                    # -2 items
+                    "Created a complete project (poster, logo, UI/UX, 3D model, etc.) -2",
+                    "Designed for real events, clients, or organizations -2",
+                    "Created a short film or video project -2",
+                    "Made a marketing strategy / understand social media algorithms -2",
+                    "Good at voice acting or acting -2"
+                ]
+            )
             media_designrate = st.slider("Rate experience (1–5)",1,5,3) # 12 / 24 / 36 / 48 / 510
             media_editingrate = st.slider("Rate your editing skills (1–5)",1,5,3) # 11 / 22 / 33 / 45 / 57
 
@@ -342,16 +360,15 @@ if remaining.total_seconds() > 0:
             st.markdown("---")
             st.subheader("Motivation & Availability")
             why_join = st.text_area("Why do you want to join the club? *")
-            motivation = st.text_area("What motivates you? *")
-            teamwork = st.text_area("Describe a teamwork experience")
-            future_goal = st.text_area("What do you hope to learn this year?")
-            free_time = st.text_input("Hours per week you can dedicate")
-            active_events = st.selectbox("Ready to participate outside class?", ["Yes,often","Sometimes","Rarely"])
-            how_know = st.selectbox("How did you hear about us?", ["Media","Friend","University","Other"])
+            what_learn = st.text_area("What do you hope to learn or achieve this year *")
             other_club = st.selectbox("Have you been part of other clubs?", ["No","Yes"])
-            role = st.text_input("If yes, your role") 
-            team_leader = st.selectbox("Leadership interest?", ["Yes, I’m interested","Maybe later","Not for now"])
-            extra = st.text_area("Anything to add?")
+            leadership = st.selectbox("Would you like to take leadership responsibilities in the future? ", ["Yes, I’m interested","Maybe later","Not for now"])
+            challenge = st.text_area("Describe one challenge you faced and how you overcame it while working with a team.")
+            manage_time = st.text_input("How do you manage your time between studies and other activities?")
+            communication_skills = st.text_input("Rate your communication skills (1–5)")
+
+            public_speaking = st.text_input("How comfortable are you with public speaking or presenting ideas?") 
+            Anything_toadd = st.text_area("Anything else you’d like us to know?")
 
             submitted = st.form_submit_button("✅ Submit My Application")
 
@@ -459,9 +476,9 @@ if remaining.total_seconds() > 0:
                                         project_descs = dd.get("project_desc", [])
                                         project_pts = 0
                                         for p in project_descs:
-                                            if "= 2pt" in p:
+                                            if "-2" in p:
                                                 project_pts += 2
-                                            elif "= 1pt" in p:
+                                            elif "-1" in p:
                                                 project_pts += 1
                                         s += project_pts
 
@@ -601,8 +618,8 @@ if remaining.total_seconds() > 0:
                                 # Build the row to save in Google Sheet
                                 row = [
                                     # --- Personal info ---
-                                    name, email, Phone, Student_id, department, academic_year, fb_link,
-                                    discord_id, Date_Birth, 
+                                    name, email, phone, student_id, department, academic_year, fb_link,
+                                    discord_id, date_birth, 
 
                                     # --- Domain order ---
                                     ", ".join(domain_order),
@@ -611,7 +628,7 @@ if remaining.total_seconds() > 0:
                                     ", ".join(tech_data["areas"]),
                                     ", ".join(tech_data["languages"]),
                                     ", ".join(tech_data["project_desc"]),
-                                    ", ".join(tech_data["portfolio"]),
+                                    tech_data["portfolio"],  # single string, no join
                                     ", ".join(tech_data["tools"]),
                                     tech_data["self_rate"],
                                     domain_scores["Tech"],  # individual Tech domain score
@@ -639,9 +656,16 @@ if remaining.total_seconds() > 0:
                                     sponsor_data["comm_rate"],
                                     domain_scores["Sponsoring"],  # individual Sponsoring domain score
 
-                                    # --- Motivation / other info (optional to keep) ---
-                                    why_join, motivation, teamwork, future_goal, free_time,
-                                    active_events, how_know, other_club, role, team_leader, extra,
+                                    # --- Motivation / other info ---
+                                    why_join,
+                                    what_learn,
+                                    other_club,
+                                    leadership,
+                                    challenge,
+                                    manage_time,
+                                    communication_skills,
+                                    public_speaking,
+                                    Anything_toadd,
 
                                     # --- Final total score ---
                                     total_score,
@@ -649,7 +673,6 @@ if remaining.total_seconds() > 0:
                                     # --- Timestamp ---
                                     datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                                 ]
-
 
                                 # append with retry
                                 try:
