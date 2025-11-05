@@ -318,7 +318,7 @@ if remaining.total_seconds() > 0:
             tech_project_desc = st.multiselect("🧠 Describe a project / competition / experience", ["Participated in national or international competitions","Designed (alone or in a team) the UI/UX of an app or website","Built a fully functional robot","Developed a responsive website","Trained an AI model","Created a game","Modeled or implemented a security system","Developed a fully functional mobile application","Created an original project or innovative solution", "Modified or improved existing ideas or systems", "Conduct practical experiments or hands-on technical tests occasionally","Not yet, but excited to start"])
             tech_portfolio = st.selectbox("**🌐 Do you have a portfolio?**", ["yes","no"])
             tech_tools = st.multiselect("🧰 Tools", ["Arduino / ESP32 / Raspberry Pi /sensors","Unity","Figma","Java","Git/GitHub","Linux","Database(SQL / MongoDB)","Docker/VM","VS Code / IntelliJ / PyCharm","APIs / Postman","Cloud Services (AWS, Firebase, etc.)","Flutter","No, but I’d like to try"])
-            tech_self_rate = st.slider("**Rate yourself (0–5)**", 0, 5, 3)
+            tech_self_rate = st.slider("**Rate yourself (0–5)**", 0, 5, 0)
 
             st.markdown("---")
             st.subheader("🎨 Design & Media Section")
@@ -345,8 +345,8 @@ if remaining.total_seconds() > 0:
                     "Good at voice acting or acting -2"
                 ]
             )
-            media_designrate = st.slider("**Rate experience (0–5)**",0,5,3) # 12 / 24 / 36 / 48 / 510
-            media_editingrate = st.slider("Rate your editing skills (0–5)",0,5,3) # 11 / 22 / 33 / 45 / 57
+            media_designrate = st.slider("**Rate experience (0–5)**",0,5,0) # 12 / 24 / 36 / 48 / 510
+            media_editingrate = st.slider("Rate your editing skills (0–5)",0,5,0) # 11 / 22 / 33 / 45 / 57
 
             st.markdown("---")
             st.subheader("💼 Sponsoring Domain")
@@ -356,7 +356,7 @@ if remaining.total_seconds() > 0:
             sponsor_connections = st.selectbox("**Do you have connections that could help find sponsors?**", ["Yes","Maybe","No"]) # Yes10 / Maybe5 / No0
             sponsor_public_speaking = st.selectbox("**Are you comfortable speaking or presenting in front of others?**", ["Yes, confidently","Sometimes","Not really, but I’d like to get better","No, I prefer working behind the scenes"]) # No0 / Not really2 / Sometimes5 / Yes
             sponsor_represent_club = st.selectbox("**Are you interested in representing the club externally (meetings, sponsors, events)?**", ["Yes, definitely","Maybe","Not really"]) # Yes8 / Maybe4 / No0
-            sponsor_comm_rate = st.slider("**Rate your confidence in communication & negotiation**",0,5,3) # 12 / 24 / 36 / 49 / 512
+            sponsor_comm_rate = st.slider("**Rate your confidence in communication & negotiation**",0,5,0) # 12 / 24 / 36 / 49 / 512
 
             st.markdown("---")
             st.subheader("Motivation & Availability")
@@ -366,7 +366,7 @@ if remaining.total_seconds() > 0:
             leadership = st.selectbox("**Would you like to take leadership responsibilities in the future?**", ["Yes, I’m interested","Maybe later","Not for now"])
             challenge = st.text_area("**Describe one challenge you faced and how you overcame it while working with a team.**")
             manage_time = st.text_input("**How do you manage your time between studies and other activities?**")
-            communication_skills = st.slider("**Rate your communication skills (0–5)**",0,5,3)
+            communication_skills = st.slider("**Rate your communication skills (0–5)**",0,5,0)
 
             public_speaking = st.text_input("**How comfortable are you with public speaking or presenting ideas?**") 
             Anything_toadd = st.text_area("**Anything else you’d like us to know?**")
