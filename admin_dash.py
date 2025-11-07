@@ -19,7 +19,7 @@ st.markdown("""
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;       
+         
 }
 [data-testid="stHeader"] {
     background: rgba(0,0,0,0);
@@ -152,7 +152,7 @@ with tab1:
     st.subheader("Overview Metrics")
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown(f"<div class='metric-card'><h3>👥 Total Applicants</h3><h1>{len(df)}</h1></div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='metric-card'><h3>👥 Total Applicants</h3><h1>{len(df)+1}</h1></div>", unsafe_allow_html=True)
     with col2:
         avg = round(df['Total_Score'].mean(), 2) if 'Total_Score' in df.columns else 0
         st.markdown(f"<div class='metric-card'><h3>⭐ Average Score</h3><h1>{avg}</h1></div>", unsafe_allow_html=True)
